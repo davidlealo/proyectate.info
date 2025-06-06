@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proyéctate con IA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #4f46e5; /* indigo-600 */
+      --secondary: #9333ea; /* purple-600 */
+      --accent: #ec4899; /* pink-500 */
+      --yellow: #ffc857;
+      --bg: #f8f9fc;
+      --dark: #1f2937;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    /* -------------------------
+       HERO
+    ------------------------- */
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+      color: #fff;
+      padding: 3rem 1rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      white-space: nowrap;
+      border-right: 4px solid #fff;
+      width: 0;
+      animation: typing 4s steps(40, end) forwards, blink 1s step-end infinite;
+    }
+
+    @keyframes typing {
+      0% {
+        width: 0;
+      }
+      100% {
+        width: 100%;
+      }
+    }
+
+    @keyframes blink {
+      from,
+      to {
+        border-color: transparent;
+      }
+      50% {
+        border-color: #fff;
+      }
+    }
+
+    header p {
+      margin-top: 1rem;
+      font-size: 1.25rem;
+      opacity: 0;
+      animation: fadeIn 2s 4.2s forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .cta-buttons {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      opacity: 0;
+      animation: fadeIn 2s 5s forwards;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-buttons a {
+      background: var(--yellow);
+      color: var(--dark);
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+
+    .cta-buttons a:hover {
+      transform: translateY(-3px);
+    }
+
+    /* -------------------------
+       SECTIONS
+    ------------------------- */
+    section {
+      padding: 4rem 1rem;
+      max-width: 960px;
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: "";
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -10px;
+      border-radius: 2px;
+    }
+
+    /* Chat Section */
+    #chat-section {
+      background: var(--dark);
+      color: #fff;
+      border-radius: 1.25rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .chat-wrapper {
+      height: 700px;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      margin-top: 1rem;
+    }
+
+    iframe {
+      border: none;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Alliance Cards */
+    .orgs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .org-card {
+      flex: 1 1 260px;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      background: #fff;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s;
+    }
+
+    .org-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .org-card img {
+      height: 60px;
+      margin-bottom: 1rem;
+    }
+
+    .org-card p {
+      font-size: 0.9rem;
+    }
+
+    .links {
+      margin-top: 1rem;
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
+    .links a {
+      color: var(--primary);
+      font-size: 1.25rem;
+      transition: color 0.2s;
+      text-decoration: none;
+    }
+
+    .links a:hover {
+      color: var(--accent);
+    }
+
+    /* -------------------------
+       FOOTER
+    ------------------------- */
+    footer {
+      background: #111;
+      color: #fff;
+      padding: 2rem 1rem;
+      text-align: center;
+      font-size: 0.875rem;
+    }
+
+    /* -------------------------
+       MEDIA QUERIES
+    ------------------------- */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- =========================
+     HERO
+  ========================== -->
+  <header>
+    <h1>Prepárate para la PAES 2025 con IA</h1>
+    <p>Orientación personalizada 24/7 para becas, gratuidad y más</p>
+    <div class="cta-buttons">
+      <a href="#chat-section">Hablar con el chat</a>
+      <a
+        href="https://chatgpt.com/g/g-68362f2211f481919482eebcb595ae82-proyectate-info"
+        target="_blank"
+        rel="noopener"
+        >Abrir en ChatGPT</a
+      >
+    </div>
+  </header>
+
+  <!-- =========================
+     CHAT SECTION
+  ========================== -->
+  <section id="chat-section">
+    <h2 class="section-title">Chat Proyéctate</h2>
+    <div class="chat-wrapper">
+      <iframe
+        src="https://chatgpt.com/g/g-68362f2211f481919482eebcb595ae82-proyectate-info"
+        title="Chat Proyéctate"
+        loading="lazy"
+        referrerpolicy="no-referrer"
+        sandbox="allow-scripts allow-same-origin allow-forms"
+      ></iframe>
+    </div>
+  </section>
+
+  <!-- =========================
+     ALLIANCE SECTION
+  ========================== -->
+  <section>
+    <h2 class="section-title">Alianza que potencia tu futuro</h2>
+
+    <div class="orgs">
+      <!-- Innovacien -->
+      <div class="org-card">
+        <img
+          src="https://innovacien.org/wp-content/uploads/2023/07/cropped-innovacien-logo-1.png"
+          alt="Logo Innovacien"
+        />
+        <p>
+          <strong>Innovacien</strong> impulsa la inclusión digital y la formación en
+          habilidades del siglo XXI para estudiantes y docentes en todo Chile.
+        </p>
+        <div class="links">
+          <a href="https://innovacien.org/" target="_blank" aria-label="Sitio Innovacien">
+            🌐
+          </a>
+          <a
+            href="https://www.instagram.com/innovacien"
+            target="_blank"
+            aria-label="Instagram Innovacien"
+          >
+            📷
+          </a>
+          <a
+            href="https://www.youtube.com/user/innovacien"
+            target="_blank"
+            aria-label="YouTube Innovacien"
+          >
+            ▶️
+          </a>
+        </div>
+      </div>
+
+      <!-- Fundación Por una Carrera -->
+      <div class="org-card">
+        <img
+          src="https://www.porunacarrera.cl/wp-content/uploads/2024/03/LOGO_FPUC.svg"
+          alt="Logo Por una Carrera"
+        />
+        <p>
+          <strong>Fundación Por una Carrera</strong> acompaña a jóvenes de ingresos medios-bajos a
+          acceder y mantenerse en la educación superior, brindando orientación y apoyo financiero.
+        </p>
+        <div class="links">
+          <a href="https://www.porunacarrera.cl/" target="_blank" aria-label="Sitio Por una Carrera">
+            🌐
+          </a>
+          <a
+            href="https://www.instagram.com/porunacarrera/"
+            target="_blank"
+            aria-label="Instagram Por una Carrera"
+          >
+            📷
+          </a>
+          <a
+            href="https://www.youtube.com/user/PorunaCarrera"
+            target="_blank"
+            aria-label="YouTube Por una Carrera"
+          >
+            ▶️
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+     FOOTER
+  ========================== -->
+  <footer>
+    © 2025 Innovacien &amp; Fundación Por una Carrera. Todos los derechos reservados.
+  </footer>
+</body>
+</html>
