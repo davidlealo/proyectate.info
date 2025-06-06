@@ -240,14 +240,14 @@
         </div>
     </footer>
 
-    /* ===== SCRIPTS ===== */
+    <!-- ===== SCRIPTS ===== -->
     <script>
         /* ---------- Mobile menu ---------- */
         const burger = document.getElementById('burger');
         const nav = document.getElementById('main-nav');
         burger.addEventListener('click', () => nav.classList.toggle('visible'));
 
-        /* ---------- Mini-chat con animación de escritura ---------- */
+        /* ---------- Mini-chat logic ---------- */
         document.addEventListener('DOMContentLoaded', () => {
             const chatBox = document.querySelector('.chat-messages');
             const input = document.getElementById('chat-input');
@@ -255,90 +255,6 @@
             let userName = '';
             const fullChatURL = 'https://chatgpt.com/g/g-68362f2211f481919482eebcb595ae82-proyectate-info';
 
-            // Función para añadir mensaje con efecto de escritura
-            const addTypingMessage = async (text, who = 'bot') => {
-                const div = document.createElement('div');
-                div.className = `message ${who === 'bot' ? 'bot-message' : 'user-message'}`;
-                chatBox.appendChild(div);
-
-                // Efecto de escritura
-                if (who === 'bot') {
-                    div.classList.add('typing-effect');
-                    div.style.width = 'fit-content';
-                    div.style.whiteSpace = 'nowrap';
-                    div.style.borderRight = '2px solid var(--primary-blue)';
-
-                    let i = 0;
-                    const speed = 30; // velocidad de escritura (ms por caracter)
-
-                    const typeWriter = async () => {
-                        if (i < text.length) {
-                            div.textContent = text.substring(0, i + 1);
-                            i++;
-                            setTimeout(typeWriter, speed);
-                        } else {
-                            div.style.borderRight = 'none';
-                            div.classList.remove('typing-effect');
-                            div.style.whiteSpace = 'normal';   // <-- evita nowrap después de escribir
-
-                        }
-                    };
-
-                    await typeWriter();
-                } else {
-                    div.textContent = text;
-                }
-
-                chatBox.scrollTop = chatBox.scrollHeight;
-            };
-
-            const infoSequence = [
-                'Proyéctate.info es nuestro servicio de orientación vocacional con IA, disponible 24/7.',
-                'Responde dudas sobre puntajes, becas, gratuidad y fechas clave de la PAES.',
-                'Además, entrega recomendaciones personalizadas basadas en tus intereses.',
-                'Para profundizar, pulsa el botón "Ir al chat Proyéctate.info".'
-            ];
-
-            const botReply = async (userText) => {
-                if (!userName) {
-                    userName = userText.trim();
-                    await addTypingMessage(`¡Encantado, ${userName}! 👋`, 'bot');
-
-                    // Mostrar mensajes con pausa entre ellos
-                    for (const message of infoSequence) {
-                        await addTypingMessage(message, 'bot');
-                        await new Promise(resolve => setTimeout(resolve, 800)); // pausa entre mensajes
-                    }
-
-                    if (!document.getElementById('cta-full-chat')) {
-                        const cta = document.createElement('a');
-                        cta.id = 'cta-full-chat';
-                        cta.href = fullChatURL;
-                        cta.target = '_blank';
-                        cta.className = 'modern-btn primary-btn';
-                        cta.style.marginTop = 'var(--space-4)';
-                        cta.style.display = 'inline-block';
-                        cta.textContent = 'Ir al chat Proyéctate.info';
-                        chatBox.appendChild(cta);
-                    }
-                } else {
-                    await addTypingMessage('Para más ayuda pulsa el botón azul 😊', 'bot');
-                }
-            };
-
-            const handleSend = async () => {
-                const text = input.value.trim();
-                if (!text) return;
-
-                addMsg(text, 'user');
-                input.value = '';
-
-                // Pequeña pausa antes de la respuesta del bot
-                await new Promise(resolve => setTimeout(resolve, 500));
-                await botReply(text);
-            };
-
-            // Función original para añadir mensajes (sin animación)
             const addMsg = (text, who = 'bot') => {
                 const div = document.createElement('div');
                 div.className = `message ${who === 'bot' ? 'bot-message' : 'user-message'}`;
@@ -347,13 +263,46 @@
                 chatBox.scrollTop = chatBox.scrollHeight;
             };
 
+            const infoSequence = [
+                'Proyéctate.info es nuestro servicio de orientación vocacional con IA, disponible 24/7.',
+                'Responde dudas sobre puntajes, becas, gratuidad y fechas clave de la PAES.',
+                'Además, entrega recomendaciones personalizadas basadas en tus intereses.',
+                'Para profundizar, pulsa el botón “Ir al chat Proyéctate.info”.'
+            ];
+
+            const botReply = (userText) => {
+                if (!userName) {
+                    userName = userText.trim();
+                    addMsg(`¡Encantado, ${userName}! 👋`, 'bot');
+                    infoSequence.forEach(m => addMsg(m, 'bot'));
+
+                    if (!document.getElementById('cta-full-chat')) {
+                        const cta = document.createElement('a');
+                        cta.id = 'cta-full-chat';
+                        cta.href = fullChatURL;
+                        cta.target = '_blank';
+                        cta.className = 'modern-btn primary-btn';
+                        cta.style.marginTop = 'var(--space-4)';
+                        cta.textContent = 'Ir al chat Proyéctate.info';
+                        chatBox.appendChild(cta);
+                    }
+                } else {
+                    addMsg('Para más ayuda pulsa el botón azul 😊', 'bot');
+                }
+            };
+
+            const handleSend = () => {
+                const text = input.value.trim();
+                if (!text) return;
+                addMsg(text, 'user');
+                input.value = '';
+                botReply(text);
+            };
+
             sendBtn.addEventListener('click', handleSend);
             input.addEventListener('keydown', e => { if (e.key === 'Enter') handleSend(); });
 
-            // Mensaje inicial con animación
-            setTimeout(() => {
-                addTypingMessage('¡Hola! Soy tu asistente PAES. ¿Cómo te llamas?', 'bot');
-            }, 800);
+            addMsg('¡Hola! Soy tu asistente PAES. ¿Cómo te llamas?');
         });
     </script>
 </body>
