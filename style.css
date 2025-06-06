@@ -1,0 +1,250 @@
+/* ===================== */
+    /* ✨ Design Tokens       */
+    /* ===================== */
+    :root {
+      /* Paleta principal (educ‑tech) */
+      --primary-100: #4f46e5;
+      --primary-200: #9333ea;
+      --primary-300: #ec4899;
+
+      /* Colores de las organizaciones */
+      --puc-blue: #1f66d0;           /* Azul Por Una Carrera */
+      --innovacien-orange: #f36f21;  /* Naranja Innovacien */
+
+      /* Accentos & neutrales */
+      --accent: var(--innovacien-orange);
+      --dark: #111827;
+      --light: #f9fafb;
+    }
+
+    /* ===================== */
+    /* 🤖 Reset & Baseline    */
+    /* ===================== */
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      scroll-behavior: smooth;
+    }
+    body {
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    /* ===================== */
+    /* 🏠 Layout              */
+    /* ===================== */
+    header {
+      background: var(--dark);
+      color: #fff;
+      padding: 1rem 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header h1 {
+      font-weight: 600;
+      font-size: 1.5rem;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 0.5rem;
+      font-size: 0.9rem;
+      transition: opacity 0.2s;
+    }
+    nav a:hover {
+      opacity: 0.7;
+    }
+    section {
+      padding: 4rem 1rem;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--primary-100), var(--primary-200), var(--primary-300));
+      color: #fff;
+      text-align: center;
+    }
+    .hero h2 {
+      font-size: 2.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      animation: fadeInDown 0.9s ease-out;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      animation: fadeInDown 1s ease-out 0.2s both;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Dark section */
+    .section-dark {
+      background: var(--dark);
+      color: #fff;
+      text-align: center;
+    }
+    .section-dark h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+    .section-dark h2::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -6px;
+      width: 60px;
+      height: 3px;
+      background: var(--primary-300);
+      border-radius: 3px;
+    }
+
+    /* Chat wrapper & fallback */
+    .chat-wrapper {
+      max-width: 960px;
+      margin: 2rem auto;
+      height: min(80vh, 700px);
+      border-radius: 1.25rem;
+      overflow: hidden;
+      background: #e5e7eb;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+    .chat-iframe {
+      border: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.4s ease-out;
+    }
+    .chat-error {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      font-size: 1rem;
+      color: var(--dark);
+      padding: 0 1rem;
+      display: none;
+      max-width: 420px;
+    }
+    .chat-error p {
+      margin-bottom: 1rem;
+    }
+
+    /* Alianza */
+    .logos-inline {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .logos-inline img {
+      max-width: 160px;
+      height: auto;
+      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15));
+      transition: transform 0.25s;
+    }
+    .logos-inline img:hover {
+      transform: translateY(-4px);
+    }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .card {
+      background: #fff;
+      border-radius: 0.75rem;
+      padding: 1.75rem 1.5rem 2rem;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      transition: transform 0.25s;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+    }
+    .card img.org-logo {
+      width: 120px;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .card p {
+      font-size: 0.9rem;
+    }
+
+    .social-links {
+      margin-top: 1.25rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .social-links a {
+      color: var(--dark);
+      font-size: 1.35rem;
+      transition: color 0.2s;
+    }
+    .social-links a:hover {
+      color: var(--accent);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.85rem;
+    }
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
