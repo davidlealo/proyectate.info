@@ -190,6 +190,53 @@
         </div>
     </article>
 
+    <!-- ===== ALIANZA INNOVACIÉN × POR UNA CARRERA ===== -->
+<section id="alianza" class="container">
+  <h2 class="section-title">Alianza Innovacien × Por Una Carrera</h2>
+
+  <div class="social-grid">
+    <!-- ===== Innovacien ===== -->
+    <article class="card org-card">
+      <img src="img/innovacien.png" alt="Logo Innovacien" class="org-logo">
+      <h3>Fundación Innovacien</h3>
+      <p>Impulsamos la inclusión digital y el desarrollo de habilidades del siglo XXI en Chile.</p>
+
+      <div class="org-links">
+        <a class="modern-btn primary-btn" href="https://innovacien.org/" target="_blank" rel="noopener">
+          Sitio Web
+        </a>
+        <a href="https://www.instagram.com/innovacien" target="_blank" aria-label="Innovacien en Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.youtube.com/user/innovacien" target="_blank" aria-label="Innovacien en YouTube">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+    </article>
+
+    <!-- ===== Por Una Carrera ===== -->
+    <article class="card org-card">
+      <img src="img/puc.jpeg" alt="Logo Por Una Carrera" class="org-logo">
+      <h3>Fundación Por Una Carrera</h3>
+      <p>Acompañamos a jóvenes en su camino hacia la educación superior y el desarrollo vocacional.</p>
+
+      <div class="org-links">
+        <a class="modern-btn primary-btn" href="https://porunacarrera.cl/" target="_blank" rel="noopener">
+          Sitio Web
+        </a>
+        <a href="https://www.instagram.com/porunacarrera" target="_blank" aria-label="Por Una Carrera en Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.youtube.com/user/PorunaCarrera" target="_blank" aria-label="Por Una Carrera en YouTube">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+    </article>
+  </div>
+</section>
+
+
+
 
     <!-- ===== TESTIMONIOS ===== -->
     <section id="testimonios" class="section">
@@ -240,122 +287,137 @@
         </div>
     </footer>
 
-    /* ===== SCRIPTS ===== */
-    <script>
-        /* ---------- Mobile menu ---------- */
-        const burger = document.getElementById('burger');
-        const nav = document.getElementById('main-nav');
-        burger.addEventListener('click', () => nav.classList.toggle('visible'));
+    <!-- ===== SCRIPTS ===== -->
+<script>
+/* ---------- Mobile menu ---------- */
+const burger = document.getElementById('burger');
+const nav = document.getElementById('main-nav');
+burger.addEventListener('click', () => nav.classList.toggle('visible'));
 
-        /* ---------- Mini-chat con animación de escritura ---------- */
-        document.addEventListener('DOMContentLoaded', () => {
-            const chatBox = document.querySelector('.chat-messages');
-            const input = document.getElementById('chat-input');
-            const sendBtn = document.getElementById('send-btn');
-            let userName = '';
-            const fullChatURL = 'https://chatgpt.com/g/g-68362f2211f481919482eebcb595ae82-proyectate-info';
+/* ---------- Mini-chat con animación de escritura ---------- */
+document.addEventListener('DOMContentLoaded', () => {
+  const chatBox  = document.querySelector('.chat-messages');
+  const input    = document.getElementById('chat-input');
+  const sendBtn  = document.getElementById('send-btn');
+  let   userName = '';
 
-            // Función para añadir mensaje con efecto de escritura
-            const addTypingMessage = async (text, who = 'bot') => {
-                const div = document.createElement('div');
-                div.className = `message ${who === 'bot' ? 'bot-message' : 'user-message'}`;
-                chatBox.appendChild(div);
+  const fullChatURL =
+    'https://chatgpt.com/g/g-68362f2211f481919482eebcb595ae82-proyectate-info';
 
-                // Efecto de escritura
-                if (who === 'bot') {
-                    div.classList.add('typing-effect');
-                    div.style.width = 'fit-content';
-                    div.style.whiteSpace = 'nowrap';
-                    div.style.borderRight = '2px solid var(--primary-blue)';
+  /* -- 1. Función con “efecto máquina de escribir” que devuelve una Promesa -- */
+  const addTypingMessage = (text, who = 'bot') => {
+    return new Promise(resolve => {
+      const div = document.createElement('div');
+      div.className = `message ${who === 'bot' ? 'bot-message' : 'user-message'}`;
+      chatBox.appendChild(div);
 
-                    let i = 0;
-                    const speed = 30; // velocidad de escritura (ms por caracter)
+      /* Animación si es mensaje del bot */
+      if (who === 'bot') {
+        div.classList.add('typing-effect');
+        div.style.width       = 'fit-content';
+        div.style.whiteSpace  = 'nowrap';
+        div.style.borderRight = '2px solid var(--primary-blue)';
 
-                    const typeWriter = async () => {
-                        if (i < text.length) {
-                            div.textContent = text.substring(0, i + 1);
-                            i++;
-                            setTimeout(typeWriter, speed);
-                        } else {
-                            div.style.borderRight = 'none';
-                            div.classList.remove('typing-effect');
-                            div.style.whiteSpace = 'normal';   // <-- evita nowrap después de escribir
+        let i = 0;
+        const speed = 30; // ms por carácter
 
-                        }
-                    };
+        const typeWriter = () => {
+          if (i < text.length) {
+            div.textContent = text.substring(0, i + 1);
+            i++;
+            setTimeout(typeWriter, speed);
+          } else {
+            div.style.borderRight = 'none';
+            div.classList.remove('typing-effect');
+            div.style.whiteSpace = 'normal'; // permite saltos de línea después
+            resolve(); // <- avisa que terminó este mensaje
+          }
+        };
 
-                    await typeWriter();
-                } else {
-                    div.textContent = text;
-                }
+        typeWriter();
+      } else {
+        /* Mensaje de usuario: sin animación */
+        div.textContent = text;
+        resolve();
+      }
 
-                chatBox.scrollTop = chatBox.scrollHeight;
-            };
+      chatBox.scrollTop = chatBox.scrollHeight;
+    });
+  };
 
-            const infoSequence = [
-                'Proyéctate.info es nuestro servicio de orientación vocacional con IA, disponible 24/7.',
-                'Responde dudas sobre puntajes, becas, gratuidad y fechas clave de la PAES.',
-                'Además, entrega recomendaciones personalizadas basadas en tus intereses.',
-                'Para profundizar, pulsa el botón "Ir al chat Proyéctate.info".'
-            ];
+  /* -- 2. Mensajes estáticos (sin animación) para el usuario -- */
+  const addMsg = (text, who = 'bot') => {
+    const div = document.createElement('div');
+    div.className = `message ${who === 'bot' ? 'bot-message' : 'user-message'}`;
+    div.textContent = text;
+    chatBox.appendChild(div);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  };
 
-            const botReply = async (userText) => {
-                if (!userName) {
-                    userName = userText.trim();
-                    await addTypingMessage(`¡Encantado, ${userName}! 👋`, 'bot');
+  /* -- 3. Secuencia de información que envía el bot después de conocer el nombre -- */
+  const infoSequence = [
+    'Proyéctate.info es nuestro servicio de orientación vocacional con IA, disponible 24/7.',
+    'Responde dudas sobre puntajes, becas, gratuidad y fechas clave de la PAES.',
+    'Además, entrega recomendaciones personalizadas basadas en tus intereses.',
+    'Para profundizar, pulsa el botón "Ir al chat Proyéctate.info".'
+  ];
 
-                    // Mostrar mensajes con pausa entre ellos
-                    for (const message of infoSequence) {
-                        await addTypingMessage(message, 'bot');
-                        await new Promise(resolve => setTimeout(resolve, 800)); // pausa entre mensajes
-                    }
+  /* -- 4. Lógica de respuesta del bot -- */
+  const botReply = async (userText) => {
+    /* Primer input: el nombre */
+    if (!userName) {
+      userName = userText.trim();
+      await addTypingMessage(`¡Encantado, ${userName}! 👋`, 'bot');
 
-                    if (!document.getElementById('cta-full-chat')) {
-                        const cta = document.createElement('a');
-                        cta.id = 'cta-full-chat';
-                        cta.href = fullChatURL;
-                        cta.target = '_blank';
-                        cta.className = 'modern-btn primary-btn';
-                        cta.style.marginTop = 'var(--space-4)';
-                        cta.style.display = 'inline-block';
-                        cta.textContent = 'Ir al chat Proyéctate.info';
-                        chatBox.appendChild(cta);
-                    }
-                } else {
-                    await addTypingMessage('Para más ayuda pulsa el botón azul 😊', 'bot');
-                }
-            };
+      /* Mensajes uno tras otro, con pausa de 800 ms entre ellos */
+      for (const message of infoSequence) {
+        await addTypingMessage(message, 'bot');
+        await new Promise(res => setTimeout(res, 800));
+      }
 
-            const handleSend = async () => {
-                const text = input.value.trim();
-                if (!text) return;
+      /* CTA al chat completo */
+      if (!document.getElementById('cta-full-chat')) {
+        const cta = document.createElement('a');
+        cta.id        = 'cta-full-chat';
+        cta.href      = fullChatURL;
+        cta.target    = '_blank';
+        cta.className = 'modern-btn primary-btn';
+        cta.style.marginTop = 'var(--space-4)';
+        cta.style.display   = 'inline-block';
+        cta.textContent     = 'Ir al chat Proyéctate.info';
+        chatBox.appendChild(cta);
+      }
 
-                addMsg(text, 'user');
-                input.value = '';
+    /* Cualquier otra entrada del usuario */
+    } else {
+      await addTypingMessage('Para más ayuda pulsa el botón azul 😊', 'bot');
+    }
+  };
 
-                // Pequeña pausa antes de la respuesta del bot
-                await new Promise(resolve => setTimeout(resolve, 500));
-                await botReply(text);
-            };
+  /* -- 5. Enviar mensaje del usuario -- */
+  const handleSend = async () => {
+    const text = input.value.trim();
+    if (!text) return;
 
-            // Función original para añadir mensajes (sin animación)
-            const addMsg = (text, who = 'bot') => {
-                const div = document.createElement('div');
-                div.className = `message ${who === 'bot' ? 'bot-message' : 'user-message'}`;
-                div.textContent = text;
-                chatBox.appendChild(div);
-                chatBox.scrollTop = chatBox.scrollHeight;
-            };
+    addMsg(text, 'user');      // muestra al instante lo que escribió
+    input.value = '';
 
-            sendBtn.addEventListener('click', handleSend);
-            input.addEventListener('keydown', e => { if (e.key === 'Enter') handleSend(); });
+    /* Pausa breve y respuesta del bot */
+    await new Promise(res => setTimeout(res, 500));
+    await botReply(text);
+  };
 
-            // Mensaje inicial con animación
-            setTimeout(() => {
-                addTypingMessage('¡Hola! Soy tu asistente PAES. ¿Cómo te llamas?', 'bot');
-            }, 800);
-        });
-    </script>
+  sendBtn.addEventListener('click', handleSend);
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') handleSend(); });
+
+  /* -- 6. Mensaje inicial del bot -- */
+  setTimeout(() => {
+    addTypingMessage('¡Hola! Soy tu asistente PAES. ¿Cómo te llamas?', 'bot');
+  }, 800);
+});
+</script>
+
+
 </body>
 
 </html>
