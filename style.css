@@ -252,5 +252,52 @@ body { overflow-x: hidden; }
 .org-links a:hover { opacity:1; }
 
 
+/* === Tarjetas de la alianza (grid adaptable) === */
+.social-grid{
+  display:grid;
+  gap:var(--space-4);
+  /* dos columnas desde 480 px; auto-fit evita descuadres */
+  grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));
+}
+
+/* Tarjeta: columna centrada y tamaños coherentes */
+.org-card{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-between;
+  text-align:center;
+  padding:var(--space-4);
+}
+
+/* Logo */
+.org-logo{
+  width:90px;
+  height:auto;
+  margin-bottom:var(--space-3);
+}
+
+/* Contenedor de botones-ícono */
+.org-links{
+  display:flex;
+  gap:0.75rem;
+  margin-top:var(--space-3);
+}
+
+/* Botón-ícono común */
+.icon-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:2.5rem;
+  height:2.5rem;
+  border-radius:50%;
+  background:var(--primary-blue);
+  color:#626262;
+  font-size:1.2rem;
+  transition:transform .2s, background .2s;
+}
+.icon-btn:hover{ transform:scale(1.1); background:var(--primary-green); }
+
 
 /* End of stylesheet */

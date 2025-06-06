@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
@@ -89,7 +90,7 @@
                         <div class="card-badge">⏱️ 24/7</div>
                         <h3 class="card-title">Siempre disponible</h3>
                     </div>
-                    <p class="card-text">
+                    <p class="card-text" style="padding: 7px;">
                         Consulta en cualquier momento y obtén respuestas inmediatas sobre
                         puntajes, becas y procesos de admisión.
                     </p>
@@ -100,7 +101,7 @@
                         <div class="card-badge">🎯 Personalizado</div>
                         <h3 class="card-title">Consejos a tu medida</h3>
                     </div>
-                    <p class="card-text">
+                    <p class="card-text" style="padding: 7px;">
                         El chat adapta sus recomendaciones según tus intereses, logros y
                         proyecciones académicas.
                     </p>
@@ -111,7 +112,7 @@
                         <div class="card-badge">💸 Gratuito</div>
                         <h3 class="card-title">Cero costo</h3>
                     </div>
-                    <p class="card-text">
+                    <p class="card-text" style="padding: 7px;">
                         El servicio es 100 % gratuito gracias a la alianza Innovacien +
                         Fundación Por una Carrera.
                     </p>
@@ -122,7 +123,7 @@
                         <div class="card-badge">🔒 Confianza</div>
                         <h3 class="card-title">Datos actualizados</h3>
                     </div>
-                    <p class="card-text">
+                    <p class="card-text" style="padding: 7px;">
                         Información oficial sobre beneficios, gratuidad y fechas críticas
                         verificadas por nuestro equipo.
                     </p>
@@ -143,97 +144,57 @@
                 </p>
             </header>
 
-            <div class="logos-carousel">
-                <div class="logo-item"><img src="img/innovacien.png" alt="Innovacien"></div>
-                <div class="logo-item"><img src="img/puc.jpeg" alt="Fundación Por una Carrera"></div>
-            </div>
+
+        <div class="social-grid">
+            <!-- ===== Innovacien ===== -->
+            <article class="card org-card">
+                <img src="img/innovacien.png" alt="Logo Innovacien" class="org-logo">
+
+                <h3>Fundación Innovacien</h3>
+                <p>Impulsamos la inclusión digital y el desarrollo de habilidades del siglo XXI en Chile.</p>
+
+                <div class="org-links">
+                    <a class="icon-btn" href="https://innovacien.org/" target="_blank"
+                        aria-label="Sitio web Innovacien">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                    <a class="icon-btn" href="https://www.instagram.com/innovacien" target="_blank"
+                        aria-label="Instagram Innovacien">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="icon-btn" href="https://www.youtube.com/user/innovacien" target="_blank"
+                        aria-label="YouTube Innovacien">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </article>
+
+            <!-- ===== Por Una Carrera ===== -->
+            <article class="card org-card">
+                <img src="img/puc.jpeg" alt="Logo Por Una Carrera" class="org-logo">
+
+                <h3>Fundación Por Una Carrera</h3>
+                <p>Acompañamos a jóvenes en su camino hacia la educación superior y el desarrollo vocacional.</p>
+
+                <div class="org-links">
+                    <a class="icon-btn" href="https://porunacarrera.cl/" target="_blank"
+                        aria-label="Sitio web Por Una Carrera">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                    <a class="icon-btn" href="https://www.instagram.com/porunacarrera" target="_blank"
+                        aria-label="Instagram Por Una Carrera">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="icon-btn" href="https://www.youtube.com/user/PorunaCarrera" target="_blank"
+                        aria-label="YouTube Por Una Carrera">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </article>
         </div>
     </section>
 
-    <!-- Card “Conoce la Alianza” -->
-    <article class="modern-card" style="max-width:26rem;margin-inline:auto;">
-        <div class="card-header">
-            <div class="card-badge">🤝 Alianza</div>
-            <h3 class="card-title">Innovacien + Fundación<br>Por una Carrera</h3>
-        </div>
 
-        <p class="card-text">
-            Trabajamos juntos para democratizar el acceso a la educación
-            superior en Chile. Visita nuestros sitios y redes para conocer
-            iniciativas, becas y testimonios.
-        </p>
-
-        <div class="card-footer" style="display:grid;gap:0.75rem;">
-            <!-- Sitios web -->
-            <a class="modern-btn secondary-btn" href="https://innovacien.org/" target="_blank">
-                🌐 innovacien.org
-            </a>
-            <a class="modern-btn secondary-btn" href="https://www.porunacarrera.cl/" target="_blank">
-                🌐 porunacarrera.cl
-            </a>
-
-            <!-- Redes Innovacien -->
-            <a class="modern-btn secondary-btn" href="https://www.instagram.com/innovacien" target="_blank">
-                📸 Instagram Innovacien
-            </a>
-            <a class="modern-btn secondary-btn" href="https://www.youtube.com/user/innovacien" target="_blank">
-                ▶️ YouTube Innovacien
-            </a>
-
-            <!-- Redes Por una Carrera -->
-            <a class="modern-btn secondary-btn" href="https://www.instagram.com/porunacarrera/" target="_blank">
-                📸 Instagram Por una Carrera
-            </a>
-            <a class="modern-btn secondary-btn" href="https://www.youtube.com/user/PorunaCarrera" target="_blank">
-                ▶️ YouTube Por una Carrera
-            </a>
-        </div>
-    </article>
-
-    <!-- ===== ALIANZA INNOVACIÉN × POR UNA CARRERA ===== -->
-<section id="alianza" class="container">
-  <h2 class="section-title">Alianza Innovacien × Por Una Carrera</h2>
-
-  <div class="social-grid">
-    <!-- ===== Innovacien ===== -->
-    <article class="card org-card">
-      <img src="img/innovacien.png" alt="Logo Innovacien" class="org-logo">
-      <h3>Fundación Innovacien</h3>
-      <p>Impulsamos la inclusión digital y el desarrollo de habilidades del siglo XXI en Chile.</p>
-
-      <div class="org-links">
-        <a class="modern-btn primary-btn" href="https://innovacien.org/" target="_blank" rel="noopener">
-          Sitio Web
-        </a>
-        <a href="https://www.instagram.com/innovacien" target="_blank" aria-label="Innovacien en Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.youtube.com/user/innovacien" target="_blank" aria-label="Innovacien en YouTube">
-          <i class="fab fa-youtube"></i>
-        </a>
-      </div>
-    </article>
-
-    <!-- ===== Por Una Carrera ===== -->
-    <article class="card org-card">
-      <img src="img/puc.jpeg" alt="Logo Por Una Carrera" class="org-logo">
-      <h3>Fundación Por Una Carrera</h3>
-      <p>Acompañamos a jóvenes en su camino hacia la educación superior y el desarrollo vocacional.</p>
-
-      <div class="org-links">
-        <a class="modern-btn primary-btn" href="https://porunacarrera.cl/" target="_blank" rel="noopener">
-          Sitio Web
-        </a>
-        <a href="https://www.instagram.com/porunacarrera" target="_blank" aria-label="Por Una Carrera en Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.youtube.com/user/PorunaCarrera" target="_blank" aria-label="Por Una Carrera en YouTube">
-          <i class="fab fa-youtube"></i>
-        </a>
-      </div>
-    </article>
-  </div>
-</section>
 
 
 
@@ -288,134 +249,134 @@
     </footer>
 
     <!-- ===== SCRIPTS ===== -->
-<script>
-/* ---------- Mobile menu ---------- */
-const burger = document.getElementById('burger');
-const nav = document.getElementById('main-nav');
-burger.addEventListener('click', () => nav.classList.toggle('visible'));
+    <script>
+        /* ---------- Mobile menu ---------- */
+        const burger = document.getElementById('burger');
+        const nav = document.getElementById('main-nav');
+        burger.addEventListener('click', () => nav.classList.toggle('visible'));
 
-/* ---------- Mini-chat con animación de escritura ---------- */
-document.addEventListener('DOMContentLoaded', () => {
-  const chatBox  = document.querySelector('.chat-messages');
-  const input    = document.getElementById('chat-input');
-  const sendBtn  = document.getElementById('send-btn');
-  let   userName = '';
+        /* ---------- Mini-chat con animación de escritura ---------- */
+        document.addEventListener('DOMContentLoaded', () => {
+            const chatBox = document.querySelector('.chat-messages');
+            const input = document.getElementById('chat-input');
+            const sendBtn = document.getElementById('send-btn');
+            let userName = '';
 
-  const fullChatURL =
-    'https://chatgpt.com/g/g-68362f2211f481919482eebcb595ae82-proyectate-info';
+            const fullChatURL =
+                'https://chatgpt.com/g/g-68362f2211f481919482eebcb595ae82-proyectate-info';
 
-  /* -- 1. Función con “efecto máquina de escribir” que devuelve una Promesa -- */
-  const addTypingMessage = (text, who = 'bot') => {
-    return new Promise(resolve => {
-      const div = document.createElement('div');
-      div.className = `message ${who === 'bot' ? 'bot-message' : 'user-message'}`;
-      chatBox.appendChild(div);
+            /* -- 1. Función con “efecto máquina de escribir” que devuelve una Promesa -- */
+            const addTypingMessage = (text, who = 'bot') => {
+                return new Promise(resolve => {
+                    const div = document.createElement('div');
+                    div.className = `message ${who === 'bot' ? 'bot-message' : 'user-message'}`;
+                    chatBox.appendChild(div);
 
-      /* Animación si es mensaje del bot */
-      if (who === 'bot') {
-        div.classList.add('typing-effect');
-        div.style.width       = 'fit-content';
-        div.style.whiteSpace  = 'nowrap';
-        div.style.borderRight = '2px solid var(--primary-blue)';
+                    /* Animación si es mensaje del bot */
+                    if (who === 'bot') {
+                        div.classList.add('typing-effect');
+                        div.style.width = 'fit-content';
+                        div.style.whiteSpace = 'nowrap';
+                        div.style.borderRight = '2px solid var(--primary-blue)';
 
-        let i = 0;
-        const speed = 30; // ms por carácter
+                        let i = 0;
+                        const speed = 30; // ms por carácter
 
-        const typeWriter = () => {
-          if (i < text.length) {
-            div.textContent = text.substring(0, i + 1);
-            i++;
-            setTimeout(typeWriter, speed);
-          } else {
-            div.style.borderRight = 'none';
-            div.classList.remove('typing-effect');
-            div.style.whiteSpace = 'normal'; // permite saltos de línea después
-            resolve(); // <- avisa que terminó este mensaje
-          }
-        };
+                        const typeWriter = () => {
+                            if (i < text.length) {
+                                div.textContent = text.substring(0, i + 1);
+                                i++;
+                                setTimeout(typeWriter, speed);
+                            } else {
+                                div.style.borderRight = 'none';
+                                div.classList.remove('typing-effect');
+                                div.style.whiteSpace = 'normal'; // permite saltos de línea después
+                                resolve(); // <- avisa que terminó este mensaje
+                            }
+                        };
 
-        typeWriter();
-      } else {
-        /* Mensaje de usuario: sin animación */
-        div.textContent = text;
-        resolve();
-      }
+                        typeWriter();
+                    } else {
+                        /* Mensaje de usuario: sin animación */
+                        div.textContent = text;
+                        resolve();
+                    }
 
-      chatBox.scrollTop = chatBox.scrollHeight;
-    });
-  };
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                });
+            };
 
-  /* -- 2. Mensajes estáticos (sin animación) para el usuario -- */
-  const addMsg = (text, who = 'bot') => {
-    const div = document.createElement('div');
-    div.className = `message ${who === 'bot' ? 'bot-message' : 'user-message'}`;
-    div.textContent = text;
-    chatBox.appendChild(div);
-    chatBox.scrollTop = chatBox.scrollHeight;
-  };
+            /* -- 2. Mensajes estáticos (sin animación) para el usuario -- */
+            const addMsg = (text, who = 'bot') => {
+                const div = document.createElement('div');
+                div.className = `message ${who === 'bot' ? 'bot-message' : 'user-message'}`;
+                div.textContent = text;
+                chatBox.appendChild(div);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            };
 
-  /* -- 3. Secuencia de información que envía el bot después de conocer el nombre -- */
-  const infoSequence = [
-    'Proyéctate.info es nuestro servicio de orientación vocacional con IA, disponible 24/7.',
-    'Responde dudas sobre puntajes, becas, gratuidad y fechas clave de la PAES.',
-    'Además, entrega recomendaciones personalizadas basadas en tus intereses.',
-    'Para profundizar, pulsa el botón "Ir al chat Proyéctate.info".'
-  ];
+            /* -- 3. Secuencia de información que envía el bot después de conocer el nombre -- */
+            const infoSequence = [
+                'Proyéctate.info es nuestro servicio de orientación vocacional con IA, disponible 24/7.',
+                'Responde dudas sobre puntajes, becas, gratuidad y fechas clave de la PAES.',
+                'Además, entrega recomendaciones personalizadas basadas en tus intereses.',
+                'Para profundizar, pulsa el botón "Ir al chat Proyéctate.info".'
+            ];
 
-  /* -- 4. Lógica de respuesta del bot -- */
-  const botReply = async (userText) => {
-    /* Primer input: el nombre */
-    if (!userName) {
-      userName = userText.trim();
-      await addTypingMessage(`¡Encantado, ${userName}! 👋`, 'bot');
+            /* -- 4. Lógica de respuesta del bot -- */
+            const botReply = async (userText) => {
+                /* Primer input: el nombre */
+                if (!userName) {
+                    userName = userText.trim();
+                    await addTypingMessage(`¡Encantado, ${userName}! 👋`, 'bot');
 
-      /* Mensajes uno tras otro, con pausa de 800 ms entre ellos */
-      for (const message of infoSequence) {
-        await addTypingMessage(message, 'bot');
-        await new Promise(res => setTimeout(res, 800));
-      }
+                    /* Mensajes uno tras otro, con pausa de 800 ms entre ellos */
+                    for (const message of infoSequence) {
+                        await addTypingMessage(message, 'bot');
+                        await new Promise(res => setTimeout(res, 800));
+                    }
 
-      /* CTA al chat completo */
-      if (!document.getElementById('cta-full-chat')) {
-        const cta = document.createElement('a');
-        cta.id        = 'cta-full-chat';
-        cta.href      = fullChatURL;
-        cta.target    = '_blank';
-        cta.className = 'modern-btn primary-btn';
-        cta.style.marginTop = 'var(--space-4)';
-        cta.style.display   = 'inline-block';
-        cta.textContent     = 'Ir al chat Proyéctate.info';
-        chatBox.appendChild(cta);
-      }
+                    /* CTA al chat completo */
+                    if (!document.getElementById('cta-full-chat')) {
+                        const cta = document.createElement('a');
+                        cta.id = 'cta-full-chat';
+                        cta.href = fullChatURL;
+                        cta.target = '_blank';
+                        cta.className = 'modern-btn primary-btn';
+                        cta.style.marginTop = 'var(--space-4)';
+                        cta.style.display = 'inline-block';
+                        cta.textContent = 'Ir al chat Proyéctate.info';
+                        chatBox.appendChild(cta);
+                    }
 
-    /* Cualquier otra entrada del usuario */
-    } else {
-      await addTypingMessage('Para más ayuda pulsa el botón azul 😊', 'bot');
-    }
-  };
+                    /* Cualquier otra entrada del usuario */
+                } else {
+                    await addTypingMessage('Para más ayuda pulsa el botón azul 😊', 'bot');
+                }
+            };
 
-  /* -- 5. Enviar mensaje del usuario -- */
-  const handleSend = async () => {
-    const text = input.value.trim();
-    if (!text) return;
+            /* -- 5. Enviar mensaje del usuario -- */
+            const handleSend = async () => {
+                const text = input.value.trim();
+                if (!text) return;
 
-    addMsg(text, 'user');      // muestra al instante lo que escribió
-    input.value = '';
+                addMsg(text, 'user');      // muestra al instante lo que escribió
+                input.value = '';
 
-    /* Pausa breve y respuesta del bot */
-    await new Promise(res => setTimeout(res, 500));
-    await botReply(text);
-  };
+                /* Pausa breve y respuesta del bot */
+                await new Promise(res => setTimeout(res, 500));
+                await botReply(text);
+            };
 
-  sendBtn.addEventListener('click', handleSend);
-  input.addEventListener('keydown', e => { if (e.key === 'Enter') handleSend(); });
+            sendBtn.addEventListener('click', handleSend);
+            input.addEventListener('keydown', e => { if (e.key === 'Enter') handleSend(); });
 
-  /* -- 6. Mensaje inicial del bot -- */
-  setTimeout(() => {
-    addTypingMessage('¡Hola! Soy tu asistente PAES. ¿Cómo te llamas?', 'bot');
-  }, 800);
-});
-</script>
+            /* -- 6. Mensaje inicial del bot -- */
+            setTimeout(() => {
+                addTypingMessage('¡Hola! Soy tu asistente PAES. ¿Cómo te llamas?', 'bot');
+            }, 800);
+        });
+    </script>
 
 
 </body>
