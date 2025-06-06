@@ -1,0 +1,175 @@
+/* ============================================
+   🌐 Global Style Sheet v4.0 – Innovacien + Fundación Por Una Carrera
+   Last update: 2025-06-06
+   --------------------------------------------
+   🔄 Major refactor – aligns **all** class names used in index.html
+   and polishes spacing, typography and responsiveness for a
+   cleaner, more professional look.
+================================================ */
+
+/*************************************************
+ 0. CSS RESET & BASE
+*************************************************/
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;font-size:100%;}
+body{font-family:"Poppins",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:#1e1e1e;background:#f7f7f8;line-height:1.6;}
+img,svg,picture,video{display:block;max-width:100%;height:auto;}
+a{text-decoration:none;color:inherit;}
+button{font-family:inherit;}
+
+/*************************************************
+ 1. DESIGN TOKENS
+*************************************************/
+:root{
+ /* Brand colours */
+ --puc-blue:#2a54a0;            /* Fundación Por una Carrera */
+ --innovacien-orange:#f97316;   /* Innovacien */
+ --primary-gradient:linear-gradient(135deg,var(--puc-blue) 0%,var(--innovacien-orange) 100%);
+
+ /* Grays & neutrals */
+ --dark:#1e1e1e;
+ --gray:#6b7280;
+ --light-gray:#e5e7eb;
+ --light:#ffffff;
+
+ /* Spacing (4-pt) */
+ --space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;
+
+ /* Radius */
+ --radius-sm:.5rem;--radius-md:.75rem;--radius-lg:1rem;
+
+ /* Shadows */
+ --shadow-xs:0 0 0 1px rgb(0 0 0 / .04);
+ --shadow-sm:0 1px 2px rgb(0 0 0 / .07);
+ }
+
+/*************************************************
+ 2. GLOBAL UTILITIES
+*************************************************/
+.container{width:min(100% - var(--space-6),70rem);margin-inline:auto;}
+.section{padding-block:var(--space-12);} /* default vertical rhythm */
+.section-header{text-align:center;margin-bottom:var(--space-8);} 
+.section-title{font-size:clamp(1.75rem,5vw,2.25rem);font-weight:600;margin-bottom:var(--space-2);} 
+.section-description{font-size:1rem;color:var(--gray);} 
+.flex{display:flex;gap:var(--space-6);} .flex-center{align-items:center;justify-content:center;}
+.grid{display:grid;gap:var(--space-6);} 
+.gradient-text{background:var(--primary-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+
+/*************************************************
+ 3. HEADER & NAV
+*************************************************/
+.modern-header{background:var(--light);border-bottom:1px solid var(--light-gray);position:sticky;top:0;z-index:50;}
+.header-container{display:flex;align-items:center;justify-content:space-between;gap:var(--space-6);padding-block:var(--space-4);}
+.logo-link h1{font-size:1.25rem;font-weight:700;color:var(--puc-blue);}
+
+.mobile-menu-button{background:none;border:none;font-size:1.5rem;color:var(--dark);display:inline-flex;align-items:center;cursor:pointer;transition:opacity .15s ease;}
+.mobile-menu-button:hover{opacity:.7;}
+
+.main-nav{display:flex;align-items:center;gap:var(--space-6);} 
+.nav-link{font-size:.9rem;font-weight:500;color:var(--dark);position:relative;} 
+.nav-link::after{content:"";position:absolute;inset-inline:0;bottom:-.25rem;height:2px;background:var(--puc-blue);opacity:0;transition:opacity .2s ease;}
+.nav-link:hover::after{opacity:1;}
+
+.nav-button{padding:var(--space-2)var(--space-4);border-radius:var(--radius-sm);background:var(--primary-gradient);color:#fff;font-weight:500;transition:filter .15s ease,transform .15s ease;}
+.nav-button:hover{filter:brightness(.95);transform:translateY(-2px);} 
+
+/* nav on mobile */
+@media(max-width:48rem){
+ .main-nav{position:absolute;top:100%;left:0;width:100%;flex-direction:column;gap:var(--space-4);padding:var(--space-6);background:var(--light);border-bottom:1px solid var(--light-gray);opacity:0;pointer-events:none;transform:translateY(-8px);transition:opacity .2s ease,transform .2s ease;}
+ .main-nav.visible{opacity:1;pointer-events:auto;transform:translateY(0);} 
+}
+
+/*************************************************
+ 4. HERO
+*************************************************/
+.modern-hero{background:var(--light);padding-block:var(--space-12);} 
+.hero-content{display:grid;gap:var(--space-8);align-items:center;} 
+@media(min-width:48rem){.hero-content{grid-template-columns:repeat(2,1fr);} }
+.hero-title{font-size:clamp(2rem,6vw,2.75rem);font-weight:700;margin-bottom:var(--space-4);} 
+.highlight{background:var(--primary-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero-subtitle{font-size:1.05rem;color:var(--gray);margin-bottom:var(--space-6);} 
+.hero-cta{display:flex;gap:var(--space-4);flex-wrap:wrap;}
+
+.modern-btn{display:inline-flex;align-items:center;gap:.5rem;font-size:.9rem;font-weight:500;border-radius:var(--radius-sm);padding:var(--space-3)var(--space-5);cursor:pointer;transition:filter .15s ease,transform .15s ease;}
+.primary-btn{background:var(--primary-gradient);color:#fff;}
+.secondary-btn{background:var(--light);color:var(--puc-blue);border:1px solid var(--puc-blue);} 
+.secondary-btn:hover{background:var(--puc-blue);color:#fff;}
+.modern-btn:hover{filter:brightness(.95);transform:translateY(-2px);} 
+
+.hero-visual{aspect-ratio:4/3;position:relative;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);}
+.ai-visual{position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,var(--primary-200) 0%,transparent 70%);} 
+.scroll-indicator{margin-top:var(--space-8);text-align:center;color:var(--puc-blue);animation:scroll-bounce 1.4s infinite;} 
+@keyframes scroll-bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(6px);}}
+
+/*************************************************
+ 5. INTERACTIVE CHAT (floating)
+*************************************************/
+.interactive-chat{position:fixed;bottom:var(--space-6);right:var(--space-6);z-index:30;display:none;} /* hidden on desktop */
+@media(max-width:48rem){.interactive-chat{display:block;}}
+
+.chat-bubble{width:19rem;border:1px solid var(--light-gray);background:var(--light);border-radius:var(--radius-lg);box-shadow:var(--shadow-md);transform:translateY(2rem);opacity:0;transition:transform .3s ease,opacity .3s ease;pointer-events:none;}
+.chat-bubble.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
+
+.chat-header{display:flex;align-items:center;justify-content:space-between;padding:var(--space-3)var(--space-4);border-bottom:1px solid var(--light-gray);}
+.chat-header h3{font-size:1rem;font-weight:600;}
+
+.chat-messages{max-height:12rem;overflow-y:auto;padding:var(--space-3) var(--space-4);display:flex;flex-direction:column;gap:var(--space-3);} 
+.message{font-size:.86rem;line-height:1.4;padding:var(--space-2)var(--space-3);border-radius:var(--radius-md);max-width:85%;}
+.bot-message{background:#f1f5f9;color:var(--dark);align-self:flex-start;}
+.user-message{background:var(--innovacien-orange);color:#fff;align-self:flex-end;}
+
+.chat-input{display:flex;gap:var(--space-2);padding:var(--space-3) var(--space-4);border-top:1px solid var(--light-gray);} 
+.chat-input input{flex:1;padding:var(--space-2) var(--space-3);border:1px solid var(--light-gray);border-radius:var(--radius-sm);font-size:.85rem;}
+.chat-input input:focus{outline:none;border-color:var(--puc-blue);box-shadow:0 0 0 2px color-mix(in srgb,var(--puc-blue) 20%,transparent);} 
+.chat-input button{display:inline-flex;align-items:center;justify-content:center;padding:var(--space-2);background:var(--puc-blue);border:none;border-radius:var(--radius-sm);color:#fff;} 
+.chat-input button:hover{filter:brightness(.92);} 
+
+/*************************************************
+ 6. LOGOS & ORGANISATION CARDS
+*************************************************/
+.logos-carousel{display:flex;gap:var(--space-8);justify-content:center;align-items:center;margin-block:var(--space-8);} 
+.logo-item img{max-width:clamp(130px,20vw,200px);opacity:.95;transition:opacity .2s ease;}
+.logo-item img:hover{opacity:1;}
+
+.cards-grid{display:grid;gap:var(--space-8);} 
+@media(min-width:40rem){.cards-grid{grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));}}
+.modern-card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--light-gray);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;transition:transform .15s ease,box-shadow .15s ease;}
+.modern-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);} 
+.card-header{padding:var(--space-6)var(--space-6)var(--space-4);text-align:center;}
+.org-logo{max-width:120px;margin-inline:auto;margin-bottom:var(--space-4);}
+.card-badge{display:inline-block;padding:var(--space-1)var(--space-2);font-size:.7rem;border-radius:9999px;background:var(--light-gray);color:var(--dark);} 
+.card-title{font-size:1.125rem;font-weight:600;margin-bottom:var(--space-3);} 
+.card-text{font-size:.9rem;color:var(--gray);} 
+.card-footer{margin-top:auto;padding:var(--space-6);text-align:center;border-top:1px solid var(--light-gray);} 
+.outline-btn{display:inline-flex;align-items:center;gap:.5rem;padding:var(--space-3)var(--space-5);font-size:.85rem;border:1px solid var(--puc-blue);color:var(--puc-blue);border-radius:var(--radius-sm);transition:background .15s ease,color .15s ease;} 
+.outline-btn:hover{background:var(--puc-blue);color:#fff;}
+
+/*************************************************
+ 7. TESTIMONIALS
+*************************************************/
+.testimonials-grid{display:grid;gap:var(--space-8);} 
+@media(min-width:40rem){.testimonials-grid{grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));}}
+.testimonial-card{display:flex;flex-direction:column;gap:var(--space-4);background:#fff;border:1px solid var(--light-gray);border-radius:var(--radius-lg);padding:var(--space-6);box-shadow:var(--shadow-sm);} 
+.testimonial-icon{color:var(--primary-100);} 
+.testimonial-text{font-size:.9rem;color:var(--dark);} 
+.author-name{font-weight:600;margin-bottom:var(--space-1);} 
+.author-detail{font-size:.8rem;color:var(--gray);} 
+
+/*************************************************
+ 8. FOOTER
+*************************************************/
+.modern-footer{background:var(--dark);color:#fff;padding-block:var(--space-10);} 
+.footer-container{display:flex;flex-direction:column;align-items:center;gap:var(--space-4);} 
+.footer-logo{font-size:1.125rem;font-weight:700;} 
+.footer-tagline{font-size:.9rem;color:#d1d5db;} 
+.footer-bottom{text-align:center;margin-top:var(--space-8);font-size:.8rem;color:#9ca3af;} 
+
+/*************************************************
+ 9. MEDIA QUERIES tweaks
+*************************************************/
+@media(max-width:40rem){
+ .hero-content{gap:var(--space-6);} 
+ .logo-link h1{font-size:1.1rem;}
+}
+
+/* End of stylesheet */
